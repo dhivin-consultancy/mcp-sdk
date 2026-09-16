@@ -1,0 +1,22 @@
+{
+  "name": "@mcp-platform/shared-contracts",
+  "version": "1.0.0",
+  "description": "Shared JSON schemas, API definitions, and MCP protocol contract specifications",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "contracts",
+    "json-schema"
+  ],
+  "author": "MCP Platform",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://mcp-platform.org/schemas/connector-manifest.json",
+  "title": "ConnectorManifest",
+  "description": "Metadata manifest describing an MCP connector plugin",
+  "type": "object",
+  "required": ["id", "name", "version", "type"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier of the connector (slug format, e.g. 'stripe-payments' or 'postgres')"
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable name of the connector"
+    },
+    "version": {
+      "type": "string",
+      "description": "SemVer version string"
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed explanation of connector capabilities"
+    },
+    "type": {
+      "type": "string",
+      "enum": ["api", "database", "custom", "saas", "file", "stream"],
+      "description": "Connector category"
+    },
+    "author": {
+      "type": "string",
+      "description": "Author, organization, or maintainer"
+    },
+    "homepage": {
+      "type": "string",
+      "format": "uri",
+      "description": "Project documentation or repository URL"
+    },
+    "supportedAuthTypes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["none", "bearer", "api_key", "basic", "oauth2_client", "oauth2_password", "custom_header"]
+      },
+      "description": "Supported authentication types"
+    },
+    "defaultConfig": {
+      "type": "object",
+      "description": "Default configuration key-values"
+    }
+  }
+}

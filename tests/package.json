@@ -1,0 +1,12 @@
+{
+  "name": "@mcp-platform/public-tests",
+  "version": "1.0.0",
+  "description": "Contract tests and SDK unit tests for public MCP components",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "@mcp-platform/connector-sdk": "file:../connector-sdk",
+    "@mcp-platform/shared-contracts": "file:../shared-contracts"
+  }
+}

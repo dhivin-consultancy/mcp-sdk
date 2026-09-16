@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://mcp-platform.org/schemas/mcp-tool.json",
+  "title": "MCPToolDefinition",
+  "description": "Standard Model Context Protocol (MCP) Tool definition schema",
+  "type": "object",
+  "required": ["name", "description", "inputSchema"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_.-]{1,64}$",
+      "description": "Unique identifier of the tool within the connector"
+    },
+    "description": {
+      "type": "string",
+      "description": "Human and LLM-readable description of what the tool does"
+    },
+    "inputSchema": {
+      "type": "object",
+      "description": "JSON Schema object describing the parameters accepted by the tool"
+    },
+    "outputSchema": {
+      "type": "object",
+      "description": "Optional JSON Schema describing the expected structure of tool output"
+    },
+    "category": {
+      "type": "string",
+      "description": "Functional category or domain grouping"
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Searchable tags"
+    },
+    "isDangerous": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether executing this tool produces side-effects or mutations requiring user confirmation"
+    }
+  }
+}

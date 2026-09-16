@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://mcp-platform.org/schemas/auth-config.json",
+  "title": "ConnectorAuthConfig",
+  "description": "Authentication configuration metadata for MCP connectors",
+  "type": "object",
+  "required": ["type"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["none", "bearer", "api_key", "basic", "oauth2_client", "oauth2_password", "custom_header"]
+    },
+    "in": {
+      "type": "string",
+      "enum": ["header", "query", "cookie"],
+      "description": "Where the api_key or auth token is injected"
+    },
+    "parameterName": {
+      "type": "string",
+      "description": "Header name, query param name, or cookie name"
+    },
+    "tokenUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "Token endpoint URL for OAuth2 flows"
+    },
+    "scopes": {
+      "type": "string",
+      "description": "Space-delimited OAuth2 scopes"
+    }
+  }
+}

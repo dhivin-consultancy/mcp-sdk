@@ -1,0 +1,30 @@
+{
+  "name": "@mcp-platform/connector-sdk",
+  "version": "1.0.0",
+  "description": "Public SDK for developing Model Context Protocol (MCP) connectors, OpenAPI integrations, and custom tools",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "node -e \"console.log('Running tests...');\""
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "connector-sdk",
+    "openapi",
+    "ai-tools"
+  ],
+  "author": "MCP Platform",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@apidevtools/swagger-parser": "^10.0.3",
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.0.0"
+  }
+}

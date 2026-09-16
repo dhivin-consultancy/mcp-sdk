@@ -1,0 +1,6 @@
+connector-sdk/dist/
+tests/node_modules/
+connector-sdk/node_modules/
+connectors/generic-rest/node_modules/
+shared-contracts/node_modules/
+shared-contracts/dist/
