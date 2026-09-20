@@ -38,6 +38,7 @@ export interface MCPToolDefinition {
 export type ConnectorType =
   | 'api'
   | 'database'
+  | 'soap'
   | 'custom'
   | 'saas'
   | 'file'
