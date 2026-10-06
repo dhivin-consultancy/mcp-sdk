@@ -102,10 +102,14 @@ export function buildInputSchema(
 
   for (const p of params) {
     if (!p.name) continue;
+    const isFile = p.type === 'file';
     const prop: Record<string, unknown> = {
-      type: p.type,
+      type: isFile ? 'string' : (p.type || 'string'),
       description: p.description || `${p.in} parameter: ${p.name}`,
     };
+    if (isFile) {
+      prop.format = 'binary';
+    }
     if (p.example !== undefined) prop.example = p.example;
     if (p.enum) prop.enum = p.enum;
     properties[p.name] = prop;

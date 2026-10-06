@@ -6,7 +6,7 @@
     "test": "node test.js"
   },
   "dependencies": {
-    "@mcp-platform/connector-sdk": "file:../connector-sdk",
+    "@hostmcp-dev/connector-sdk": "file:../connector-sdk",
     "@mcp-platform/shared-contracts": "file:../shared-contracts"
   }
 }

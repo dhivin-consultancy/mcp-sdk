@@ -1,0 +1,88 @@
+name: Publish Connector SDK to npm
+
+on:
+  release:
+    types: [published]
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Perform dry run (do not actually publish)'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  test-and-build:
+    name: Test & Build SDK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'npm'
+          cache-dependency-path: 'connector-sdk/package-lock.json'
+
+      - name: Install SDK Dependencies
+        working-directory: ./connector-sdk
+        run: npm ci
+
+      - name: Typecheck SDK
+        working-directory: ./connector-sdk
+        run: npm run typecheck
+
+      - name: Build SDK
+        working-directory: ./connector-sdk
+        run: npm run build
+
+      - name: Install & Run Public Test Suite
+        working-directory: ./tests
+        run: |
+          npm ci
+          npm test
+
+  publish:
+    name: Publish to npm
+    needs: test-and-build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js for npm Publishing
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@hostmcp-dev'
+
+      - name: Install Dependencies
+        working-directory: ./connector-sdk
+        run: npm ci
+
+      - name: Build SDK Distribution
+        working-directory: ./connector-sdk
+        run: npm run build
+
+      - name: Publish to npm (Dry Run)
+        if: ${{ inputs.dry_run == true }}
+        working-directory: ./connector-sdk
+        run: npm publish --access public --dry-run
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Publish to npm
+        if: ${{ inputs.dry_run != true }}
+        working-directory: ./connector-sdk
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

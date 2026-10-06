@@ -1,5 +1,5 @@
 /**
- * @mcp-platform/connector-sdk
+ * @hostmcp-dev/connector-sdk
  *
  * Official TypeScript SDK for creating Model Context Protocol (MCP) connectors,
  * converting OpenAPI/Swagger specifications into MCP tools, and handling authentication.

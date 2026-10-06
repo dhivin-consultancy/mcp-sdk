@@ -15,11 +15,11 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.createGenericRestConnector = createGenericRestConnector;
-const connector_sdk_1 = require("@mcp-platform/connector-sdk");
+const connector_sdk_1 = require("@hostmcp-dev/connector-sdk");
 /**
  * Factory to create a ready-to-run Generic REST Connector from an OpenAPI specification.
  */
 function createGenericRestConnector(options) {
     return new connector_sdk_1.OpenApiConnector(options);
 }
-__exportStar(require("@mcp-platform/connector-sdk"), exports);
+__exportStar(require("@hostmcp-dev/connector-sdk"), exports);
