@@ -1,4 +1,4 @@
-# @mcp-platform/connector-sdk
+# @hostmcp-dev/connector-sdk
 
 Official open-source SDK for building Model Context Protocol (MCP) connectors, converting OpenAPI specifications into MCP AI tools, and managing enterprise authentication.
 
@@ -16,7 +16,7 @@ The **MCP Connector SDK** provides the framework and runtime engine to build, te
 ## 📦 Installation
 
 ```bash
-npm install @mcp-platform/connector-sdk
+npm install @hostmcp-dev/connector-sdk
 ```
 
 ---
@@ -28,7 +28,7 @@ npm install @mcp-platform/connector-sdk
 Transform any OpenAPI 2.0 (Swagger) or 3.x document (URL, YAML, or JSON) into MCP tools automatically:
 
 ```typescript
-import { OpenApiConnector } from '@mcp-platform/connector-sdk';
+import { OpenApiConnector } from '@hostmcp-dev/connector-sdk';
 
 const connector = new OpenApiConnector({
   id: 'stripe-payments',
@@ -70,7 +70,7 @@ console.log('Result:', result.data);
 For custom integrations, use `CustomConnector`:
 
 ```typescript
-import { CustomConnector } from '@mcp-platform/connector-sdk';
+import { CustomConnector } from '@hostmcp-dev/connector-sdk';
 
 const connector = new CustomConnector({
   id: 'calculator-service',
@@ -112,7 +112,7 @@ await connector.init();
 Extend `DatabaseConnector` for relational or document databases:
 
 ```typescript
-import { DatabaseConnector, DatabaseConnectorConfig } from '@mcp-platform/connector-sdk';
+import { DatabaseConnector, DatabaseConnectorConfig } from '@hostmcp-dev/connector-sdk';
 
 export class PostgresConnector extends DatabaseConnector {
   public readonly id = 'postgres-connector';
@@ -160,7 +160,7 @@ The SDK includes runtime authentication injection for:
 The SDK includes a built-in compliance test runner:
 
 ```typescript
-import { runConnectorTests } from '@mcp-platform/connector-sdk';
+import { runConnectorTests } from '@hostmcp-dev/connector-sdk';
 
 const report = await runConnectorTests(connector, {
   credentials: { type: 'bearer', token: 'test-token' },

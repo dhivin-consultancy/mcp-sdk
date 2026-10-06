@@ -4,7 +4,7 @@ const {
   OpenApiConnector,
   CustomConnector,
   runConnectorTests,
-} = require('@mcp-platform/connector-sdk');
+} = require('@hostmcp-dev/connector-sdk');
 
 async function runTests() {
   console.log('🧪 Running MCP Public Test Suite...\n');

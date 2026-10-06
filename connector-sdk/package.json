@@ -1,5 +1,5 @@
 {
-  "name": "@mcp-platform/connector-sdk",
+  "name": "@hostmcp-dev/connector-sdk",
   "version": "1.0.0",
   "description": "Public SDK for developing Model Context Protocol (MCP) connectors, OpenAPI integrations, and custom tools",
   "main": "dist/index.js",
@@ -8,6 +8,12 @@
     "build": "tsc",
     "typecheck": "tsc --noEmit",
     "test": "node -e \"console.log('Running tests...');\""
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "mcp",

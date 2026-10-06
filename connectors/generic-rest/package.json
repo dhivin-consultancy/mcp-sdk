@@ -9,7 +9,7 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@mcp-platform/connector-sdk": "file:../../connector-sdk"
+    "@hostmcp-dev/connector-sdk": "file:../../connector-sdk"
   },
   "devDependencies": {
     "typescript": "^5.0.0"
